@@ -1,0 +1,1 @@
+(()=>{"use strict";document.getElementById("menu-list").addEventListener("click",(e=>{if(e.target.closest("ul>li>a")){e.preventDefault();const t=e.target.closest("a").hash;document.querySelector(t).scrollIntoView({behavior:"smooth"})}}))})();
