@@ -30,7 +30,7 @@
 
   <body>
     <!-- * * * * * * Mobile menu * * * * * * -->
-    <div class="mobile-menu">
+    <div class="mobile-menu fixed-block">
       <span class="mobile-menu-close close"></span>
       <a href="#callback" class="callback-btn show-modal fancyboxModal hidden-sm"
         ><i class="fa fa-phone"></i> Заказать звонок</a
@@ -42,7 +42,7 @@
         <li><a href="#contacts">Контакты</a></li>
       </ul>
     </div>
-    <div class="overlay"></div>
+    <div class="overlay fixed-block"></div>
     <!-- * * * * * * Mobile menu: end * * * * * * -->
 
     <div class="main-wrapper">
@@ -77,7 +77,7 @@
 
             <!-- * * * * * * Top menu * * * * * * -->
             <div class="top-menu visible-md-inline-block visible-lg-inline-block">
-              <ul>
+              <ul id="menu-list">
                 <li><a href="#services">Цены на услуги</a></li>
                 <li><a href="#faq">Ответы на вопросы</a></li>
                 <li><a href="#contacts">Контакты</a></li>
@@ -295,10 +295,8 @@
         <div class="container text-center">
           <span class="f30 helios">Не нашли нужной услуги?</span>
           <div class="push20 visible-xs visible-sm"></div>
-          <<<<<<< HEAD <a class="button button-services fancyboxModal invert" href="#feedback"
-          =======
           <a class="button button-services show-modal fancyboxModal invert" href="#feedback"
-            >>>>>>> modal-window >Звоните, мы обязательно вам поможем!</a
+            >Звоните, мы обязательно вам поможем!</a
           >
         </div>
         <div class="push50"></div>
@@ -606,9 +604,9 @@
     </div>
     <!-- * * * * * * Footer: end * * * * * * -->
 
-    <div class="modal-overlay"></div>
+    <div class="modal-overlay fixed-block"></div>
     <!-- * * * * * * Callback modal block * * * * * * -->
-    <div class="modal-callback" id="callback">
+    <div class="modal-callback fixed-block" id="callback">
       <div class="modal-close">
         <img src="images/close_icon_green.svg" alt="modal-close" />
       </div>

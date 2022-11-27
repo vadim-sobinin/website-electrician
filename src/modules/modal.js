@@ -5,6 +5,8 @@ export const modal = () => {
   const modalWindow = document.querySelector('#callback');
   const modalClose = modalWindow.querySelector('.modal-close');
 
+  document.querySelector('.header-wrapper').style.width = window.innerWidth + 'px';
+
   showModalBtns.forEach((showModalBtn) => {
     showModalBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -22,11 +24,13 @@ export const modal = () => {
 
   const animation = (isOpen) => {
     isOpen
-      ? ((modalOverlay.style.opacity = 0),
+      ? (scrollBarControl(isOpen),
+        (modalOverlay.style.opacity = 0),
         (modalWindow.style.opacity = 0),
         (modalOverlay.style.display = 'block'),
-        (modalWindow.style.display = 'block'))
-      : null;
+        (modalWindow.style.display = 'block'),
+        (document.body.style.overflow = 'hidden'))
+      : ((document.body.style.overflow = ''), scrollBarControl(isOpen));
 
     animate({
       duration: 500,
@@ -43,5 +47,29 @@ export const modal = () => {
           : null;
       },
     });
+  };
+
+  const scrollBarControl = (isOpen) => {
+    console.log(isOpen);
+    let scrollBarWidth = window.innerWidth - document.body.offsetWidth + 'px';
+    const fixedElems = document.querySelectorAll('.fixed-block');
+
+    if (isOpen) {
+      document.body.style.paddingRight = scrollBarWidth;
+      // document.body.classList.toggle('disable-scroll');
+      document.querySelector('.up').style.marginRight = scrollBarWidth;
+
+      document.querySelector('#callback').style.left = window.innerWidth / 2 + 'px';
+      fixedElems.forEach((elem) => {
+        elem.style.paddingRight = scrollBarWidth;
+      });
+    } else {
+      document.body.style.paddingRight = '0px';
+      // document.body.classList.toggle('disable-scroll');
+      document.querySelector('.up').style.marginRight = '0px';
+      fixedElems.forEach((elem) => {
+        elem.style.paddingRight = '0px';
+      });
+    }
   };
 };
