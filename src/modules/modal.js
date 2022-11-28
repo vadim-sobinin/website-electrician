@@ -50,7 +50,6 @@ export const modal = () => {
   };
 
   const scrollBarControl = (isOpen) => {
-    console.log(isOpen);
     let scrollBarWidth = window.innerWidth - document.body.offsetWidth + 'px';
     const fixedElems = document.querySelectorAll('.fixed-block');
 

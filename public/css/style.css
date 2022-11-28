@@ -852,6 +852,7 @@ hr.white {
 
 /* top slider */
 .top-slider .slick-dots {
+  z-index: 11;
   position: absolute;
   bottom: 25px;
 }
