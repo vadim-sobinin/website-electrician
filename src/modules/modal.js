@@ -21,33 +21,11 @@ export const modal = () => {
   modalClose.addEventListener('click', (e) => {
     animation(false);
   });
+};
 
-  const animation = (isOpen) => {
-    isOpen
-      ? (scrollBarControl(isOpen),
-        (modalOverlay.style.opacity = 0),
-        (modalWindow.style.opacity = 0),
-        (modalOverlay.style.display = 'block'),
-        (modalWindow.style.display = 'block'),
-        (document.body.style.overflow = 'hidden'))
-      : ((document.body.style.overflow = ''), scrollBarControl(isOpen));
-
-    animate({
-      duration: 500,
-      timing(timeFraction) {
-        return timeFraction;
-      },
-      draw(progress) {
-        isOpen
-          ? ((modalWindow.style.opacity = progress), (modalOverlay.style.opacity = progress))
-          : ((modalWindow.style.opacity = 1 - progress),
-            (modalOverlay.style.opacity = 1 - progress));
-        modalWindow.style.opacity === '0'
-          ? ((modalWindow.style.display = 'none'), (modalOverlay.style.display = 'none'))
-          : null;
-      },
-    });
-  };
+export const animation = (isOpen) => {
+  const modalOverlay = document.querySelector('.modal-overlay');
+  const modalWindow = document.querySelector('#callback');
 
   const scrollBarControl = (isOpen) => {
     let scrollBarWidth = window.innerWidth - document.body.offsetWidth + 'px';
@@ -71,4 +49,28 @@ export const modal = () => {
       });
     }
   };
+
+  isOpen
+    ? (scrollBarControl(isOpen),
+      (modalOverlay.style.opacity = 0),
+      (modalWindow.style.opacity = 0),
+      (modalOverlay.style.display = 'block'),
+      (modalWindow.style.display = 'block'),
+      (document.body.style.overflow = 'hidden'))
+    : ((document.body.style.overflow = ''), scrollBarControl(isOpen));
+
+  animate({
+    duration: 500,
+    timing(timeFraction) {
+      return timeFraction;
+    },
+    draw(progress) {
+      isOpen
+        ? ((modalWindow.style.opacity = progress), (modalOverlay.style.opacity = progress))
+        : ((modalWindow.style.opacity = 1 - progress), (modalOverlay.style.opacity = 1 - progress));
+      modalWindow.style.opacity === '0'
+        ? ((modalWindow.style.display = 'none'), (modalOverlay.style.display = 'none'))
+        : null;
+    },
+  });
 };
