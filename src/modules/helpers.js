@@ -1,6 +1,4 @@
-
-function animate({timing, draw, duration}) {
-
+export const animate = ({ timing, draw, duration }) => {
   let start = performance.now();
 
   requestAnimationFrame(function animate(time) {
@@ -16,8 +14,18 @@ function animate({timing, draw, duration}) {
     if (timeFraction < 1) {
       requestAnimationFrame(animate);
     }
-
   });
-}
+};
 
-export {animate}
+export const debounce = (func, ms = 300) => {
+  let timer;
+
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      {
+        func.apply(this, args);
+      }
+    }, ms);
+  };
+};
