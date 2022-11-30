@@ -22,11 +22,11 @@ export const carousel = () => {
   const elemsTriplex = createNDimArray([Math.ceil(elems.length / 3), 0]);
 
   for (let i = 0; i < elems.length; i++) {
-    console.log(Math.floor(i / 3));
-    console.log(elemsTriplex[Math.floor(i / 3)]);
+    // console.log(Math.floor(i / 3));
+    // console.log(elemsTriplex[Math.floor(i / 3)]);
     elemsTriplex[Math.floor(i / 3)].push(elems[i]);
   }
-  console.log(elemsTriplex);
+  // console.log(elemsTriplex);
 
   let currentSet = 0;
   const setsQuantity = elemsTriplex.length;

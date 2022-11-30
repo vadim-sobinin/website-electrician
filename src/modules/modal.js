@@ -4,8 +4,8 @@ export const modal = () => {
   const modalOverlay = document.querySelector('.modal-overlay');
   const modalWindow = document.querySelector('#callback');
   const modalClose = modalWindow.querySelector('.modal-close');
-
-  document.querySelector('.header-wrapper').style.width = window.innerWidth + 'px';
+  const header = document.querySelector('.header-wrapper');
+  header.style.width = window.innerWidth + 'px';
 
   showModalBtns.forEach((showModalBtn) => {
     showModalBtn.addEventListener('click', (e) => {
@@ -20,6 +20,11 @@ export const modal = () => {
 
   modalClose.addEventListener('click', (e) => {
     animation(false);
+  });
+
+  window.addEventListener('resize', (e) => {
+    header.style.width = window.innerWidth + 'px';
+    modalWindow.style.left = window.innerWidth / 2 + 'px';
   });
 };
 
@@ -36,7 +41,7 @@ export const animation = (isOpen) => {
       // document.body.classList.toggle('disable-scroll');
       document.querySelector('.up').style.marginRight = scrollBarWidth;
 
-      document.querySelector('#callback').style.left = window.innerWidth / 2 + 'px';
+      modalWindow.style.left = window.innerWidth / 2 + 'px';
       fixedElems.forEach((elem) => {
         elem.style.paddingRight = scrollBarWidth;
       });
