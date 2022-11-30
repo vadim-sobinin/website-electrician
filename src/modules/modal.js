@@ -5,6 +5,8 @@ export const modal = () => {
   const modalWindow = document.querySelector('#callback');
   const modalClose = modalWindow.querySelector('.modal-close');
   const header = document.querySelector('.header-wrapper');
+  const carouselBlock = document.querySelector('.services-carousel');
+
   header.style.width = window.innerWidth + 'px';
 
   showModalBtns.forEach((showModalBtn) => {
@@ -12,6 +14,13 @@ export const modal = () => {
       e.preventDefault();
       animation(true);
     });
+  });
+
+  carouselBlock.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (e.target.closest('a')) {
+      animation(true);
+    }
   });
 
   modalOverlay.addEventListener('click', (e) => {

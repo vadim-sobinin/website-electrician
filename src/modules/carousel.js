@@ -1,5 +1,3 @@
-import { animation } from './modal';
-
 export const carousel = () => {
   const carouselBlock = document.querySelector('.services-carousel');
   const elems = carouselBlock.querySelectorAll('.element');
@@ -27,7 +25,6 @@ export const carousel = () => {
   for (let i = 0; i < elems.length; i++) {
     elemsTriplex[Math.floor(i / 3)].push(elems[i]);
   }
-  // console.log(elemsTriplex);
 
   let currentSet = 0;
   const setsQuantity = elemsTriplex.length;
@@ -61,6 +58,4 @@ export const carousel = () => {
 
   arrowLeft.addEventListener('click', () => setCounter('-'));
   arrowRight.addEventListener('click', () => setCounter('+'));
-
-  // ....
 };
